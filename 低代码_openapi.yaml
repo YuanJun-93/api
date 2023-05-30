@@ -1,0 +1,419 @@
+components: {}
+info:
+  contact: {}
+  description: 低代码服务API文档
+  license:
+    name: ""
+  title: 低代码服务API文档
+  version: 1.0.0
+openapi: 3.0.0
+paths:
+  /do:
+    post:
+      requestBody:
+        content:
+          application/octet-stream:
+            schema:
+              format: binary
+              type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                properties:
+                  code:
+                    description: '200: ok ；90001：识别报错，错误信息详见message。'
+                    enum:
+                    - 200
+                    - 90001
+                    example: 200
+                    type: integer
+                  message:
+                    description: code描述信息
+                    example: success
+                    type: string
+                  result:
+                    description: 识别结果
+                    properties:
+                      details:
+                        oneOf:
+                        - description: 进账单
+                          properties:
+                            人民币(大写):
+                              description: 字段识别结果
+                              items:
+                                properties:
+                                  confidence:
+                                    type: integer
+                                  position:
+                                    description: 坐标点位
+                                    items:
+                                      type: integer
+                                    type: array
+                                  type:
+                                    description: 字段类型
+                                    type: string
+                                  value:
+                                    description: 字段值
+                                    type: string
+                                type: object
+                              type: array
+                            出票人/全称:
+                              description: 字段识别结果
+                              items:
+                                properties:
+                                  confidence:
+                                    type: integer
+                                  position:
+                                    description: 坐标点位
+                                    items:
+                                      type: integer
+                                    type: array
+                                  type:
+                                    description: 字段类型
+                                    type: string
+                                  value:
+                                    description: 字段值
+                                    type: string
+                                type: object
+                              type: array
+                            出票人/账号:
+                              description: 字段识别结果
+                              items:
+                                properties:
+                                  confidence:
+                                    type: integer
+                                  position:
+                                    description: 坐标点位
+                                    items:
+                                      type: integer
+                                    type: array
+                                  type:
+                                    description: 字段类型
+                                    type: string
+                                  value:
+                                    description: 字段值
+                                    type: string
+                                type: object
+                              type: array
+                            收款人/全称:
+                              description: 字段识别结果
+                              items:
+                                properties:
+                                  confidence:
+                                    type: integer
+                                  position:
+                                    description: 坐标点位
+                                    items:
+                                      type: integer
+                                    type: array
+                                  type:
+                                    description: 字段类型
+                                    type: string
+                                  value:
+                                    description: 字段值
+                                    type: string
+                                type: object
+                              type: array
+                            收款人/账号:
+                              description: 字段识别结果
+                              items:
+                                properties:
+                                  confidence:
+                                    type: integer
+                                  position:
+                                    description: 坐标点位
+                                    items:
+                                      type: integer
+                                    type: array
+                                  type:
+                                    description: 字段类型
+                                    type: string
+                                  value:
+                                    description: 字段值
+                                    type: string
+                                type: object
+                              type: array
+                            进账日期:
+                              description: 字段识别结果
+                              items:
+                                properties:
+                                  confidence:
+                                    type: integer
+                                  position:
+                                    description: 坐标点位
+                                    items:
+                                      type: integer
+                                    type: array
+                                  type:
+                                    description: 字段类型
+                                    type: string
+                                  value:
+                                    description: 字段值
+                                    type: string
+                                type: object
+                              type: array
+                        - description: 现金交款单
+                          properties:
+                            人民币(大写):
+                              description: 字段识别结果
+                              items:
+                                properties:
+                                  confidence:
+                                    type: integer
+                                  position:
+                                    description: 坐标点位
+                                    items:
+                                      type: integer
+                                    type: array
+                                  type:
+                                    description: 字段类型
+                                    type: string
+                                  value:
+                                    description: 字段值
+                                    type: string
+                                type: object
+                              type: array
+                            收款单位/交款单位:
+                              description: 字段识别结果
+                              items:
+                                properties:
+                                  confidence:
+                                    type: integer
+                                  position:
+                                    description: 坐标点位
+                                    items:
+                                      type: integer
+                                    type: array
+                                  type:
+                                    description: 字段类型
+                                    type: string
+                                  value:
+                                    description: 字段值
+                                    type: string
+                                type: object
+                              type: array
+                            收款单位/全称:
+                              description: 字段识别结果
+                              items:
+                                properties:
+                                  confidence:
+                                    type: integer
+                                  position:
+                                    description: 坐标点位
+                                    items:
+                                      type: integer
+                                    type: array
+                                  type:
+                                    description: 字段类型
+                                    type: string
+                                  value:
+                                    description: 字段值
+                                    type: string
+                                type: object
+                              type: array
+                            收款单位/开户行:
+                              description: 字段识别结果
+                              items:
+                                properties:
+                                  confidence:
+                                    type: integer
+                                  position:
+                                    description: 坐标点位
+                                    items:
+                                      type: integer
+                                    type: array
+                                  type:
+                                    description: 字段类型
+                                    type: string
+                                  value:
+                                    description: 字段值
+                                    type: string
+                                type: object
+                              type: array
+                            收款单位/账号:
+                              description: 字段识别结果
+                              items:
+                                properties:
+                                  confidence:
+                                    type: integer
+                                  position:
+                                    description: 坐标点位
+                                    items:
+                                      type: integer
+                                    type: array
+                                  type:
+                                    description: 字段类型
+                                    type: string
+                                  value:
+                                    description: 字段值
+                                    type: string
+                                type: object
+                              type: array
+                            日期:
+                              description: 字段识别结果
+                              items:
+                                properties:
+                                  confidence:
+                                    type: integer
+                                  position:
+                                    description: 坐标点位
+                                    items:
+                                      type: integer
+                                    type: array
+                                  type:
+                                    description: 字段类型
+                                    type: string
+                                  value:
+                                    description: 字段值
+                                    type: string
+                                type: object
+                              type: array
+                        - description: 电汇凭证
+                          properties:
+                            人民币(大写):
+                              description: 字段识别结果
+                              items:
+                                properties:
+                                  confidence:
+                                    type: integer
+                                  position:
+                                    description: 坐标点位
+                                    items:
+                                      type: integer
+                                    type: array
+                                  type:
+                                    description: 字段类型
+                                    type: string
+                                  value:
+                                    description: 字段值
+                                    type: string
+                                type: object
+                              type: array
+                            委托日期:
+                              description: 字段识别结果
+                              items:
+                                properties:
+                                  confidence:
+                                    type: integer
+                                  position:
+                                    description: 坐标点位
+                                    items:
+                                      type: integer
+                                    type: array
+                                  type:
+                                    description: 字段类型
+                                    type: string
+                                  value:
+                                    description: 字段值
+                                    type: string
+                                type: object
+                              type: array
+                            收款人/全称:
+                              description: 字段识别结果
+                              items:
+                                properties:
+                                  confidence:
+                                    type: integer
+                                  position:
+                                    description: 坐标点位
+                                    items:
+                                      type: integer
+                                    type: array
+                                  type:
+                                    description: 字段类型
+                                    type: string
+                                  value:
+                                    description: 字段值
+                                    type: string
+                                type: object
+                              type: array
+                            收款人/账号:
+                              description: 字段识别结果
+                              items:
+                                properties:
+                                  confidence:
+                                    type: integer
+                                  position:
+                                    description: 坐标点位
+                                    items:
+                                      type: integer
+                                    type: array
+                                  type:
+                                    description: 字段类型
+                                    type: string
+                                  value:
+                                    description: 字段值
+                                    type: string
+                                type: object
+                              type: array
+                            汇款人/全称:
+                              description: 字段识别结果
+                              items:
+                                properties:
+                                  confidence:
+                                    type: integer
+                                  position:
+                                    description: 坐标点位
+                                    items:
+                                      type: integer
+                                    type: array
+                                  type:
+                                    description: 字段类型
+                                    type: string
+                                  value:
+                                    description: 字段值
+                                    type: string
+                                type: object
+                              type: array
+                            汇款人/账号:
+                              description: 字段识别结果
+                              items:
+                                properties:
+                                  confidence:
+                                    type: integer
+                                  position:
+                                    description: 坐标点位
+                                    items:
+                                      type: integer
+                                    type: array
+                                  type:
+                                    description: 字段类型
+                                    type: string
+                                  value:
+                                    description: 字段值
+                                    type: string
+                                type: object
+                              type: array
+                        type: object
+                      image:
+                        description: 切图模块输出的图片base64
+                        type: string
+                      image_angle:
+                        description: 样本旋转角度
+                        enum:
+                        - 0
+                        - 90
+                        - 180
+                        - 270
+                        example: 90
+                        type: integer
+                      rotated_image_height:
+                        description: 旋转后的图片高度
+                        example: 960
+                        type: integer
+                      rotated_image_width:
+                        description: 旋转后的图片宽度
+                        example: 1800
+                        type: integer
+                      type:
+                        description: 样本分类结果
+                        enum:
+                        - 电汇凭证
+                        - 进账单
+                        - 现金交款单
+                        type: string
+                    type: object
+                type: object
+          description: ""
